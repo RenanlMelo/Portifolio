@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <div className="z-50">
+    <article className="z-50">
       {open && (
         <div
           id="navBar"
@@ -162,7 +162,7 @@ export const Navbar: React.FC = () => {
                 <h3
                   className={`text-[var(--main)] text-[1.25vw] col-start-2 row-start-${
                     index + 1
-                  } font-bold font-mono tracking-tighter cursor-pointer pr-6 hover:drop-shadow-[0_0_10px_#4dffbe] duration-300`}
+                  } font-bold cursor-pointer pr-6 hover:drop-shadow-[0_0_10px_#4dffbe] duration-300`}
                   onClick={() => handleClick(index)}
                 >
                   {item}
@@ -179,6 +179,6 @@ export const Navbar: React.FC = () => {
       >
         {open ? "<" : ">"}
       </button>
-    </div>
+    </article>
   );
 };

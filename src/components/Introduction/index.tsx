@@ -3,7 +3,6 @@ import { Navbar } from "../Navbar";
 export const Introduction = () => {
   return (
     <>
-      <Navbar />
       <div className="h-[100vh] w-[100vw] flex justify-start items-center">
         <Content />
       </div>
