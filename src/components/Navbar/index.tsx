@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-export const Navbar: React.FC = () => {
+interface Props {
+  open: boolean,
+  setOpen: (open: boolean) => void,
+  size: number | undefined,
+  setSize: (size: number | undefined) => void
+}
+
+export const Navbar: React.FC<Props> = ({ open, setOpen, size, setSize }) => {
   const menuList: string[] = [
     "Introduction",
     "Experience",
@@ -32,7 +39,6 @@ export const Navbar: React.FC = () => {
       desfoque += 0.5;
       opacidadeSombra += 0.02;
 
-      // Mudar gradualmente a cor para uma cor de destaque (ex.: verde)
       if (corR > 77) corR -= 7;
       if (corG > 255) corG -= 5;
       if (corB > 190) corB -= 7;
@@ -70,7 +76,6 @@ export const Navbar: React.FC = () => {
       desfoque -= 0.5;
       opacidadeSombra -= 0.02;
 
-      // Mudar gradualmente a cor de volta para a cor inicial (branca)
       if (corR < 255) corR += 7;
       if (corG < 255) corG += 5;
       if (corB < 255) corB += 7;
@@ -116,69 +121,68 @@ export const Navbar: React.FC = () => {
     setActive(index);
   };
 
-  const [open, setOpen] = useState(true);
-
-  const handleToggle = () => {
-    setOpen(!open);
-  };
-
-  const [navBarSize, setNavBarSize] = useState<number | undefined>(undefined);
   useEffect(() => {
     const getNavBarSize = () => {
-      const size = document.getElementById("navBar");
-      setNavBarSize(size?.clientWidth);
-      console.log(navBarSize);
+      const navSize = document.getElementById("navBar");
+      setSize(navSize?.clientWidth);
+      console.log(size);
     };
 
     getNavBarSize();
     window.addEventListener("resize", getNavBarSize);
 
     return () => {
-      window.addEventListener("resize", getNavBarSize);
+      window.removeEventListener("resize", getNavBarSize);
     };
   }, []);
 
+  useEffect(() => {
+    const handleOpen = () => {
+
+      const navbar = document.getElementById('navbar')
+      const duration = 500
+      let pos = 0
+      const finalPos = size? size * -1 : 0
+      
+      while (finalPos !== pos) {
+        pos -= 1
+        if (navbar) navbar.style.translate = `${pos}px, -50%`
+      }
+    }
+
+    handleOpen()
+  }, [open])
+
   return (
     <article className="z-50">
-      {open && (
-        <div
-          id="navBar"
-          className="flex justify-start items-center p-12 left-0 top-1/2 -translate-y-1/2 rounded-r-2xl fixed bg-black/50"
-        >
-          <div className="grid grid-cols-[auto_1fr] grid-rows-4 justify-center items-center flex-col gap-y-8 h-fit relative w-fit gap-x-4">
-            <div className="absolute h-4/5 w-[2px] bg-gradient-to-b from-[var(--main)] from-0% to-[#fff] to-15% shadow-[0_0_20px_#ccc] left-[29px] top-1/2 -translate-y-1/2 -z-10" />
-            {menuList.map((item, index) => (
-              <React.Fragment key={index}>
-                <div
-                  onClick={() => handleClick(index)}
-                  style={{
-                    boxShadow: boxShadows[index],
-                    backgroundColor: bgColors[index],
-                  }}
-                  className={`w-5 h-5 m-5 rounded-full cursor-pointer ${
-                    index === active ? "bg-[var(--main)]" : "bg-white"
-                  } col-start-1 row-start-${index + 1}`}
-                />
-                <h3
-                  className={`text-[var(--main)] text-[1.25vw] col-start-2 row-start-${
-                    index + 1
-                  } font-bold cursor-pointer pr-6 hover:drop-shadow-[0_0_10px_#4dffbe] duration-300`}
-                  onClick={() => handleClick(index)}
-                >
-                  {item}
-                </h3>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      )}
-      <button
-        onClick={handleToggle}
-        style={{ left: open ? `${navBarSize}px` : "0" }}
-        className="bg-black/50 text-white aspect-square px-4 py-2 fixed top-1/2 left-0"
+      <div
+        id="navBar"
+        className={`flex justify-start items-center p-12 left-0 top-1/2 rounded-r-2xl fixed bg-black/50`}
       >
-        {open ? "<" : ">"}
-      </button>
+        <div className="grid grid-cols-[auto_1fr] grid-rows-4 justify-center items-center flex-col gap-y-8 h-fit relative w-fit gap-x-4">
+          <div className="absolute h-4/5 w-[2px] bg-gradient-to-b from-[var(--main)] from-0% to-[#fff] to-15% shadow-[0_0_20px_#ccc] left-[29px] top-1/2 -translate-y-1/2 -z-10" />
+          {menuList.map((item, index) => (
+            <React.Fragment key={index}>
+              <div
+                onClick={() => handleClick(index)}
+                style={{
+                  boxShadow: boxShadows[index],
+                  backgroundColor: bgColors[index],
+                }}
+                className={`w-5 h-5 m-5 rounded-full cursor-pointer ${index === active ? "bg-[var(--main)]" : "bg-white"
+                  } col-start-1 row-start-${index + 1}`}
+              />
+              <h3
+                className={`text-[var(--main)] text-[1.25vw] col-start-2 row-start-${index + 1
+                  } font-bold cursor-pointer pr-6 hover:drop-shadow-[0_0_10px_#4dffbe] duration-300`}
+                onClick={() => handleClick(index)}
+              >
+                {item}
+              </h3>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
     </article>
   );
 };
