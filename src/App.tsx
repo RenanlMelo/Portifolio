@@ -1,37 +1,36 @@
-import { useState } from "react";
+import React, { useRef } from "react";
 import { Experience } from "./components/Experience";
 import { Introduction } from "./components/Introduction";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
+import "./components.css";
 
 function App() {
+  const introductionRef = useRef<HTMLDivElement | null>(null);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
 
-  const [open, setOpen] = useState(true);
-  const [size, setSize] = useState<number | undefined>(undefined);
-
-  function handleToggle() {
-    const navbar = document.getElementById('navbar');
-    console.log('Navbar element:', navbar);
-    navbar?.classList.toggle('activeNavbar', !open);
-    setOpen(!open)
-  }
+  const scrollTo = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
+    if (sectionRef.current) {
+      window.scrollTo({
+        top: sectionRef.current.offsetTop, // Tente remover a parte - window.innerHeight / 2
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <>
-      <button
-        onClick={handleToggle}
-        style={{ left: open ? `${size}px` : "0" }}
-        className="bg-black/50 text-white aspect-square px-4 py-2 fixed top-1/2 left-0"
-      >
-        {open ? "<" : ">"}
-      </button>
       <section>
-        <Navbar open={open} setOpen={setOpen} size={size} setSize={setSize} />
-        <div className="w-[95vw] h-[100vh] shadow-[inset_500px_0_300px_#000000bb] top-0 fixed -z-10" />
+        <Navbar
+          onSectionClick={scrollTo}
+          refs={[introductionRef, experienceRef, projectsRef, contactRef]}
+        />
       </section>
-      <Introduction />
-      <Experience />
-      <Projects />
+      <Introduction ref={introductionRef} />
+      <Experience ref={experienceRef} />
+      <Projects ref={projectsRef} />
     </>
   );
 }

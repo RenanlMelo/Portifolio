@@ -1,0 +1,33 @@
+#navBar {
+  transition: transform 0.75s ease;
+  transform: translate(0, -50%);
+  border: 1px solid var(--grey);
+  border-left: 0;
+}
+
+#navBar.closed {
+  transform: translate(-100%, -50%);
+}
+
+.rotate-content {
+  border: 1px solid var(--grey);
+  fill: var(--main);
+}
+button:hover .rotate-content {
+  fill: var(--black);
+}
+
+button .rotate-content {
+  transition: transform 1s ease;
+  transform: rotate(180deg);
+}
+
+button.closed .rotate-content {
+  transition: transform 0.5s ease;
+  transform: rotate(180deg);
+}
+
+button.closed .rotate-content.translate {
+  transition: transform 0.75s ease;
+  transform: translateX(0%);
+}

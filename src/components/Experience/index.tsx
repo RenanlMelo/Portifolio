@@ -1,7 +1,13 @@
-export const Experience = () => {
+import React from "react";
+
+export const Experience = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<{}>
+>((props, ref) => {
   return (
     <>
       <section
+        ref={ref}
         id="experience"
         className="w-full px-96 py-12 my-12 flex flex-col justify-center items-center"
       >
@@ -52,4 +58,4 @@ export const Experience = () => {
       </section>
     </>
   );
-};
+});

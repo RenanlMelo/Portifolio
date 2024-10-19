@@ -1,4 +1,9 @@
-export const Projects = () => {
+import React from "react";
+
+export const Projects = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<{}>
+>((props, ref) => {
   const listProjects = [
     {
       name: "Auto Sales Brasil",
@@ -27,7 +32,11 @@ export const Projects = () => {
   ];
   return (
     <>
-      <section id="projects" className="grid items-center justify-evenly my-24">
+      <section
+        ref={ref}
+        id="projects"
+        className="grid items-center justify-evenly my-24"
+      >
         <div className="text-[var(--white)] text-center">
           <h2 className="text-[calc(2.5vw-5px)] p-8 uppercase">
             Projects - Web Development
@@ -39,11 +48,13 @@ export const Projects = () => {
                 <div className="w-1/5 px-4 py-8 text-start bg-black z-50">
                   <a
                     href={prj.url}
-                    className="text-[var(--white)] text-2xl z-[100]"
+                    className="text-[var(--white)] text-2xl z-[100] hover:underline underline-offset-4"
                   >
                     {prj.name}
                   </a>
-                  <h3 className="text-xl mb-4">{prj.description}</h3>
+                  <h3 className="text-xl mt-[1vh] mb-[3vh]">
+                    {prj.description}
+                  </h3>
                   <h4>Tecnologias Utilizadas:</h4>
                   <ul className="list-inside list-disc">
                     {prj.used.map((item) => (
@@ -68,4 +79,4 @@ export const Projects = () => {
       </section>
     </>
   );
-};
+});
