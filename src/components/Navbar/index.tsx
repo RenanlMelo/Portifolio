@@ -164,16 +164,16 @@ export const Navbar: React.FC<ScrollToProps> = ({ onSectionClick, refs }) => {
       >
         <button
           className={`absolute right-0 overflow-hidden ${
-            open ? "translate-x-1/2" : "translate-x-full"
-          } transition-all duration-300 z-[999] ${navBarClasses}`}
+            open ? "translate-x-1/2" : "translate-x-[105%]"
+          } transition-all duration-300 z-[999] p-px ${navBarClasses}`}
           onClick={() => setOpen(!open)}
         >
           <div
-            className={`rotate-content p-4 bg-[var(--black)] rounded-full hover:bg-[var(--darker)]`}
+            className={`rotate-content p-[1vw] bg-[var(--black)] rounded-full hover:bg-[var(--darker)]`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width={25}
+              width={window.innerHeight * 0.03 + 4}
               viewBox="0 0 512 512"
               className="rotate-90"
             >
@@ -183,7 +183,7 @@ export const Navbar: React.FC<ScrollToProps> = ({ onSectionClick, refs }) => {
         </button>
 
         <div className="grid grid-cols-[auto_1fr] grid-rows-4 justify-center items-center flex-col gap-y-[calc(3vh-10px)] h-fit relative w-fit gap-x-4">
-          <div className="absolute h-4/5 w-[2px] bg-gradient-to-b from-[var(--main)] from-0% to-[#fff] to-15% shadow-[0_0_20px_#ccc] left-[29px] top-1/2 -translate-y-1/2 -z-10" />
+          <div className="absolute h-4/5 w-[2px] bg-white shadow-[0_0_20px_#ccc] left-[29px] top-1/2 -translate-y-1/2 -z-10" />
           {menuList.map((item, index) => (
             <React.Fragment key={index}>
               <div

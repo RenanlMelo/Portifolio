@@ -11,13 +11,13 @@ export const Experience = React.forwardRef<
         id="experience"
         className="w-full px-96 py-12 my-12 flex flex-col justify-center items-center"
       >
-        <h1 className="text-[var(--white)] text-[calc(2.5vw-5px)] uppercase">
+        <h2 className="text-[var(--white)] text-[calc(2.5vw-5px)] uppercase">
           Experience
-        </h1>
+        </h2>
         <article className="pb-8">
-          <h2 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
+          <h3 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
             Web Developer
-          </h2>
+          </h3>
           <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
             I began my web development journey in May 2023 as part of a college
             project, and since then, I have been continuously expanding my
@@ -36,9 +36,9 @@ export const Experience = React.forwardRef<
         </article>
         <line className="bg-[var(--grey)] w-full h-px" />
         <article>
-          <h2 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
+          <h3 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
             RPA Developer Intern
-          </h2>
+          </h3>
           <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
             I have been working as an RPA Developer Intern since March 2024.
             Over the past few months, I have gained extensive experience in{" "}

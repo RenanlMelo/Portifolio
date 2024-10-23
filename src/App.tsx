@@ -4,6 +4,7 @@ import { Introduction } from "./components/Introduction";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
 import "./components.css";
+import { Contact } from "./components/Contact";
 
 function App() {
   const introductionRef = useRef<HTMLDivElement | null>(null);
@@ -31,6 +32,7 @@ function App() {
       <Introduction ref={introductionRef} />
       <Experience ref={experienceRef} />
       <Projects ref={projectsRef} />
+      <Contact ref={contactRef} />
     </>
   );
 }
