@@ -31,12 +31,3 @@ button.closed .rotate-content.translate {
   transition: transform 0.75s ease;
   transform: translateX(0%);
 }
-
-.contact_item {
-  color: white;
-  transition: all 0.25s;
-}
-
-.contact_item:hover {
-  color: #909090;
-}
