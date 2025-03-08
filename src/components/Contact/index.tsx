@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import GitHubIcon from "/github.svg";
-import LinkedinIcon from "/linkedin.svg";
-import EmailIcon from "/email.svg";
 
 export const Contact = React.forwardRef<
   HTMLDivElement,
@@ -68,16 +65,6 @@ export const Contact = React.forwardRef<
       ),
     },
   ];
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Falha ao copiar o texto", err);
-    }
-  };
 
   return (
     <section

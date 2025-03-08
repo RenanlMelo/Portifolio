@@ -23,7 +23,7 @@ export const Projects = React.forwardRef<
     },
     {
       name: "Leveling Corp",
-      url: "https://light-leveling.vercel.app/",
+      url: "https://levelingcorp.com.br/",
       description: "Site institucional totalmente responsivo e funcional.",
       img: "leveling.png",
       altImg: "Imagem de projeto para empresa Leveling",
