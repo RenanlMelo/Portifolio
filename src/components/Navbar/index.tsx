@@ -45,7 +45,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
       {/* Cabeçalho com botão de menu */}
       <header className="fixed bg-[var(--bg)] border-b border-[var(--darker2)] py-4 lg:py-6 px-14 lg:px-8 flex justify-between items-center w-full z-[1000]">
         <h1 className="text-[#eee] font-bold tracking-wider text-base lg:text-xl">
-          My Portfolio
+          My Portifolio
         </h1>
         <span
           onClick={handleToggle}
