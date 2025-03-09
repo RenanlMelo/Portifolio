@@ -39,10 +39,10 @@ export const Content = () => {
         </a>
         <a
           className="border border-[var(--main)] hover:border-[var(--main)] px-2 py-1 text-2xl text-[var(--main)] hover:text-[var(--main)] duration-150 shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] file:lg:mx-0"
-          href="mailto:renanlaramelo@gmail.com"
+          href="https://wa.me/5515996839690"
           target="_blank"
         >
-          Contact me
+          Contact me via WhatsApp
         </a>
       </div>
     </article>
