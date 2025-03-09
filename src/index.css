@@ -5,20 +5,21 @@
 :root {
   --white: #ccc;
   --grey: #707070;
-  --main: #4dffbe;
-  --darker: #43c998;
+  --main: #8257e6;
+  --darker: #5f41a5;
+  --menu: #0d0916aa;
   --black: #121212;
+  --bg: #131320;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 body {
-  background: #101015;
+  background: var(--bg);
   font-family: "Archivo", sans-serif;
 }
 

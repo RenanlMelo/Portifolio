@@ -41,7 +41,7 @@ export const Projects = React.forwardRef<
         className="grid items-center justify-evenly my-12 lg:my-48"
       >
         <div className="text-[var(--white)] text-center">
-          <h2 className="text-base lg:text-[calc(2.5vw-5px)] p-2 pb-6 lg:p-8 uppercase">
+          <h2 className="text-2xl lg:text-4xl p-2 pb-6 lg:p-8">
             Projects - Web Development
           </h2>
           <div className="flex flex-col gap-y-4 lg:gap-y-20">
@@ -52,21 +52,21 @@ export const Projects = React.forwardRef<
                   src={prj.img}
                   alt={prj.altImg}
                 />
-                <div className="mx-auto w-auto lg:w-1/5 px-4 py-8 text-start lg:bg-black z-50">
+                <div className="mx-auto w-auto lg:w-1/5 px-4 py-8 text-start lg:bg-black z-30">
                   <a
                     href={prj.url}
                     target="_blank"
-                    className="text-[var(--white)] text-sm lg:text-2xl z-[100] hover:underline underline-offset-4"
+                    className="text-[var(--white)] text-base lg:text-2xl z-40 hover:underline underline-offset-4"
                   >
                     {prj.name}
                   </a>
-                  <h3 className="text-xs lg:text-xl mt-[1vh] mb-[3vh]">
+                  <h3 className="text-sm lg:text-xl mt-[1vh] mb-[3vh]">
                     {prj.description}
                   </h3>
-                  <h4 className="text-sm lg:text-base">
+                  <h4 className="text-base lg:text-base">
                     Tecnologias Utilizadas:
                   </h4>
-                  <ul className="list-inside list-disc text-xs lg:text-base">
+                  <ul className="list-inside list-disc text-sm lg:text-base">
                     {prj.used.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -75,7 +75,7 @@ export const Projects = React.forwardRef<
                     <a
                       href={prj.repository}
                       target="_blank"
-                      className="flex px-2 py-1 rounded-sm border lg:border-none border-[#aaa] gap-x-2 h-full items-center text-sm lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
+                      className="flex px-2 py-1 rounded-sm border lg:border-none border-[#aaa] gap-x-2 h-full items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ export const Projects = React.forwardRef<
                     <a
                       href={prj.repository}
                       target="_blank"
-                      className="flex gap-x-2 px-2 py-1 rounded-sm border lg:border-none border-[#aaa] items-center text-sm lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
+                      className="flex gap-x-2 px-2 py-1 rounded-sm border lg:border-none border-[#aaa] items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
                     >
                       <svg
                         className="fill-current group-hover:fill-blue-400 p-1 lg:p-0"
@@ -116,16 +116,6 @@ export const Projects = React.forwardRef<
             ))}
           </div>
         </div>
-
-        {/* <article className="text-[var(--white)] text-center">
-          <h2>RPA Development</h2>
-          <div>
-            <video width={1600} height={900}>
-              <source />
-            </video>
-            <p></p>
-          </div>
-        </article> */}
       </section>
     </>
   );

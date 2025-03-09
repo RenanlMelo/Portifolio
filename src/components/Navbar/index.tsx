@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-interface ScrollToProps {
-  onSectionClick: (sectionRef: React.RefObject<HTMLDivElement | null>) => void;
-  refs: React.RefObject<HTMLDivElement | null>[];
+interface FullScreenMenuProps {
+  sectionRefs: React.RefObject<HTMLDivElement>[];
 }
 
-export const Navbar: React.FC<ScrollToProps> = ({ onSectionClick, refs }) => {
+export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
+  sectionRefs,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
   const menuList: string[] = [
     "Introduction",
     "Experience",
@@ -13,201 +16,78 @@ export const Navbar: React.FC<ScrollToProps> = ({ onSectionClick, refs }) => {
     "Contact",
   ];
 
-  const [open, setOpen] = useState(true);
-  const [size, setSize] = useState<number | undefined>(undefined);
-  const [active, setActive] = useState<number | null>(0);
-  const [boxShadows, setBoxShadows] = useState<string[]>(
-    menuList.map(() => "0px 0px 0px rgba(77, 255, 190, 0)")
-  );
-  const [bgColors, setBgColors] = useState<string[]>(
-    menuList.map(() => "rgb(255, 255, 255)")
-  );
+  const handleToggle = () => setIsOpen(!isOpen);
 
-  useEffect(() => {
-    if (active !== null) {
-      aumentarSombraECor(active);
-    }
-  }, [active]);
+  const scrollToSection = (index: number) => {
+    const sectionRef = sectionRefs[index];
 
-  const aumentarSombraECor = (index: number) => {
-    let desfoque = 0;
-    let opacidadeSombra = 0;
-    let corR = 255;
-    let corG = 255;
-    let corB = 255;
+    if (sectionRef?.current) {
+      const h2Element = sectionRef.current.querySelector("h2");
 
-    function animarSombraECor() {
-      desfoque += 0.5;
-      opacidadeSombra += 0.02;
+      if (h2Element) {
+        const headerHeight =
+          document.querySelector("header")?.offsetHeight || 0;
+        const h1Position =
+          h2Element.getBoundingClientRect().top + window.scrollY;
 
-      if (corR > 77) corR -= 7;
-      if (corG > 255) corG -= 5;
-      if (corB > 190) corB -= 7;
-
-      if (desfoque <= 20 && opacidadeSombra <= 1) {
-        setBoxShadows((prevShadows) =>
-          prevShadows.map((shadow, i) =>
-            i === index
-              ? `0px 0px ${desfoque}px rgba(77, 255, 190, ${opacidadeSombra})`
-              : shadow
-          )
-        );
-
-        setBgColors((prevColors) =>
-          prevColors.map((color, i) =>
-            i === index ? `rgb(${corR}, ${corG}, ${corB})` : color
-          )
-        );
-
-        requestAnimationFrame(animarSombraECor);
+        window.scrollTo({
+          top: h1Position - headerHeight - 20, // Ajuste para evitar que fique colado no topo
+          behavior: "smooth",
+        });
       }
     }
 
-    animarSombraECor();
+    setIsOpen(false);
   };
-
-  const diminuirSombraECor = (index: number) => {
-    let desfoque = 20;
-    let opacidadeSombra = 1;
-    let corR = 77;
-    let corG = 255;
-    let corB = 190;
-
-    function animarSombraECor() {
-      desfoque -= 0.5;
-      opacidadeSombra -= 0.02;
-
-      if (corR < 255) corR += 7;
-      if (corG < 255) corG += 5;
-      if (corB < 255) corB += 7;
-
-      if (desfoque > 0 && opacidadeSombra > 0) {
-        setBoxShadows((prevShadows) =>
-          prevShadows.map((shadow, i) =>
-            i === index
-              ? `0px 0px ${desfoque}px rgba(77, 255, 190, ${opacidadeSombra})`
-              : shadow
-          )
-        );
-
-        setBgColors((prevColors) =>
-          prevColors.map((color, i) =>
-            i === index ? `rgb(${corR}, ${corG}, ${corB})` : color
-          )
-        );
-
-        requestAnimationFrame(animarSombraECor);
-      } else {
-        setBoxShadows((prevShadows) =>
-          prevShadows.map((shadow, i) =>
-            i === index ? "0px 0px 0px rgba(77, 255, 190, 0)" : shadow
-          )
-        );
-
-        setBgColors((prevColors) =>
-          prevColors.map((color, i) =>
-            i === index ? "rgb(255, 255, 255)" : color
-          )
-        );
-      }
-    }
-
-    animarSombraECor();
-  };
-
-  const handleClick = (index: number) => {
-    if (active !== null) {
-      diminuirSombraECor(active);
-    }
-    setActive(index);
-    const sectionRef = refs[index];
-    if (sectionRef && sectionRef.current) {
-      onSectionClick(sectionRef);
-    }
-  };
-
-  useEffect(() => {
-    const getNavBarSize = () => {
-      const navSize = document.getElementById("navBar");
-      if (navSize) setSize(navSize.clientWidth);
-    };
-
-    getNavBarSize();
-    window.addEventListener("resize", getNavBarSize);
-
-    return () => {
-      window.removeEventListener("resize", getNavBarSize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const rotateContent = document.querySelector(".rotate-content");
-
-    if (rotateContent) {
-      if (!open) {
-        setTimeout(() => {
-          rotateContent.classList.add("translate");
-        }, 200);
-      } else {
-        rotateContent.classList.remove("translate");
-      }
-    }
-  }, [open]);
-
-  const navBarClasses = open ? "" : "closed";
 
   return (
-    <article className="z-50">
-      <div
-        id="navBar"
-        className={`flex items-center pl-[calc(2vw-10px)] pr-[calc(1vw-10px)] py-6 left-0 top-1/2 rounded-r-2xl fixed bg-[var(--black)] overflow-visible ${navBarClasses}`}
-      >
-        <button
-          className={`absolute right-0 overflow-hidden ${
-            open ? "translate-x-1/2" : "translate-x-[105%]"
-          } transition-all duration-300 z-[999] p-px ${navBarClasses}`}
-          onClick={() => setOpen(!open)}
+    <>
+      {/* Cabeçalho com botão de menu */}
+      <header className="fixed bg-[var(--bg)] border-b border-[var(--darker2)] py-4 lg:py-6 px-14 lg:px-8 flex justify-between items-center w-full z-[1000]">
+        <h1 className="text-[#eee] font-bold tracking-wider text-base lg:text-xl">
+          My Portfolio
+        </h1>
+        <span
+          onClick={handleToggle}
+          className="w-8 h-8 flex items-center justify-center cursor-pointer text-white text-3xl"
         >
-          <div
-            className={`rotate-content p-[1vw] bg-[var(--black)] rounded-full hover:bg-[var(--darker)]`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={window.innerHeight * 0.03 + 4}
-              viewBox="0 0 512 512"
-              className="rotate-90"
-            >
-              <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
-            </svg>
-          </div>
-        </button>
+          {isOpen ? (
+            <span className="text-4xl lg:text-6xl -translate-y-1 lg:translate-y-0">
+              ×
+            </span>
+          ) : (
+            <span className="w-5 lg:w-8 flex flex-col gap-y-1 lg:gap-y-2 cursor-pointer lg:translate-y-1">
+              <div className="w-full h-[2px] bg-[#ccc] transition-all" />
+              <div className="w-full h-[2px] bg-[#ccc] transition-all" />
+              <div className="w-full h-[2px] bg-[#ccc] transition-all" />
+            </span>
+          )}
+        </span>
+      </header>
 
-        <div className="grid grid-cols-[auto_1fr] grid-rows-4 justify-center items-center flex-col gap-y-[calc(3vh-10px)] h-fit relative w-fit gap-x-4">
-          <div className="absolute h-4/5 w-[2px] bg-white shadow-[0_0_20px_#ccc] left-[29px] top-1/2 -translate-y-1/2 -z-10" />
-          {menuList.map((item, index) => (
-            <React.Fragment key={index}>
-              <div
-                onClick={() => handleClick(index)}
-                style={{
-                  boxShadow: boxShadows[index],
-                  backgroundColor: bgColors[index],
-                }}
-                className={`w-5 h-5 m-5 rounded-full cursor-pointer ${
-                  index === active ? "bg-[var(--main)]" : "bg-white"
-                } col-start-1 row-start-${index + 1}`}
-              />
-              <h3
-                className={`text-[var(--main)] text-[calc(.75vw+7px)] col-start-2 row-start-${
-                  index + 1
-                } font-bold cursor-pointer pr-6 hover:drop-shadow-[0_0_10px_#4dffbe] duration-300`}
-                onClick={() => handleClick(index)}
+      {/* Menu Full Screen com animação */}
+      {isOpen && (
+        <motion.nav
+          initial={{ opacity: 0, y: "-100%" }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.5 }}
+          className="fixed top-0 left-0 w-full h-full bg-[var(--menu)] backdrop-blur-sm flex flex-col justify-center items-center z-40"
+        >
+          <ul className="text-white space-y-6 text-center px-8 -translate-y-1/3 lg:translate-y-0">
+            {menuList.map((item, index) => (
+              <li
+                key={index}
+                onClick={() => scrollToSection(index)}
+                className="cursor-pointer text-2xl lg:text-3xl group transition-colors duration-75 hover:text-[var(--main)]"
               >
-                {item}
-              </h3>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-    </article>
+                <span className="">{item}</span>
+                <span className="block h-[2px] bg-[var(--main)] transform scale-x-0 origin-left transition-transform duration-75 delay-75 group-hover:scale-x-100"></span>
+              </li>
+            ))}
+          </ul>
+        </motion.nav>
+      )}
+    </>
   );
 };

@@ -70,12 +70,10 @@ export const Contact = React.forwardRef<
     <section
       ref={ref}
       id="contact"
-      className="w-full lg:px-96 py-12 lg:py-36 mt-12 flex flex-col justify-center items-center bg-black"
+      className="w-full py-12 lg:pt-36 mt-12 flex flex-col justify-center items-center bg-black"
     >
-      <h2 className="text-white py-4 text-base lg:text-[calc(2.5vw-5px)] uppercase">
-        Contact
-      </h2>
-      <div className="grid grid-rows-3 lg:grid-cols-3 justify-center items-center gap-y-3 lg:gap-x-10 lg:m-12">
+      <h2 className="text-white py-4 text-2xl lg:text-4xl">Contact</h2>
+      <div className="grid grid-rows-3 grid-cols-1 lg:grid-cols-3 lg:grid-rows-1 justify-center items-center gap-y-3 lg:gap-x-10 lg:m-12">
         {contactList.map((item, index) => (
           <div
             key={index}
@@ -87,8 +85,8 @@ export const Contact = React.forwardRef<
               className="cursor-pointer items-center gap-2 flex flex-col"
             >
               {item.svg}
-              <div className="items-start">
-                <h3 className="text-base lg:leading-7 lg:text-[1.25vw]">
+              <div className="items-center text-center">
+                <h3 className="text-lg lg:leading-7 lg:text-[1.25vw]">
                   {item.plataform}
                 </h3>
                 <h4 className="text-base lg:leading-7 lg:text-[1.1vw]">

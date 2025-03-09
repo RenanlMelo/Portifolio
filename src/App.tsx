@@ -1,34 +1,23 @@
 import React, { useRef } from "react";
 import { Experience } from "./components/Experience";
 import { Introduction } from "./components/Introduction";
-import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
-import "./components.css";
 import { Contact } from "./components/Contact";
+import "./components.css";
+import { FullScreenMenu } from "./components/Navbar";
 
 function App() {
-  const introductionRef = useRef<HTMLDivElement | null>(null);
-  const experienceRef = useRef<HTMLDivElement | null>(null);
-  const projectsRef = useRef<HTMLDivElement | null>(null);
-  const contactRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollTo = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
-    if (sectionRef.current) {
-      window.scrollTo({
-        top: sectionRef.current.offsetTop, // Tente remover a parte - window.innerHeight / 2
-        behavior: "smooth",
-      });
-    }
-  };
+  const introductionRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
-      <section>
-        <Navbar
-          onSectionClick={scrollTo}
-          refs={[introductionRef, experienceRef, projectsRef, contactRef]}
-        />
-      </section>
+      <FullScreenMenu
+        sectionRefs={[introductionRef, experienceRef, projectsRef, contactRef]}
+      />
+
       <Introduction ref={introductionRef} />
       <Experience ref={experienceRef} />
       <Projects ref={projectsRef} />
