@@ -8,7 +8,7 @@ export const Projects = React.forwardRef<
     {
       name: "Auto Sales Brasil",
       url: "https://autosalesbrasil.vercel.app/",
-      description: "Site institucional totalmente responsivo e funcional.",
+      description: "A fully responsive and functional institutional website.",
       img: "autosales.png",
       altImg: "Imagem de projeto para empresa Auto Sales Brasil",
       used: ["React.js", "Typescript", "Sanity.io", "MongoDB", "Node.js"],
@@ -17,7 +17,7 @@ export const Projects = React.forwardRef<
     {
       name: "Unilock Pisos - Intertravados",
       url: "https://www.unilockpisos.com.br/",
-      description: "Site institucional totalmente responsivo e funcional.",
+      description: "A fully responsive and functional institutional website.",
       img: "unilock.png",
       altImg: "Imagem de projeto para empresa Unilock Pisos",
       used: ["React.js", "Typescript", "MongoDB", "Node.js"],
@@ -26,7 +26,7 @@ export const Projects = React.forwardRef<
     {
       name: "Leveling Corp",
       url: "https://levelingcorp.com.br/",
-      description: "Site institucional totalmente responsivo e funcional.",
+      description: "A fully responsive and functional institutional website.",
       img: "leveling.png",
       altImg: "Imagem de projeto para empresa Leveling",
       used: ["React.js", "Typescript"],
@@ -64,7 +64,7 @@ export const Projects = React.forwardRef<
                     {prj.description}
                   </h3>
                   <h4 className="text-base lg:text-base">
-                    Tecnologias Utilizadas:
+                    Technologies Used:
                   </h4>
                   <ul className="list-inside list-disc text-sm lg:text-base">
                     {prj.used.map((item) => (
