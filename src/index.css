@@ -18,7 +18,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   height: 100lvh;
   background: var(--bg);
   font-family: "Archivo", sans-serif;
