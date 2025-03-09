@@ -7,7 +7,7 @@ export const Introduction = React.forwardRef<
   return (
     <>
       <div
-        className="h-[100vh] w-[100vw] flex justify-start items-center"
+        className="h-[100lvh] w-[100vw] flex justify-start items-center"
         ref={ref}
       >
         <Content />

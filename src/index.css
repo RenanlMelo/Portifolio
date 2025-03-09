@@ -19,6 +19,7 @@
 }
 
 body {
+  height: 100lvh;
   background: var(--bg);
   font-family: "Archivo", sans-serif;
 }
