@@ -88,10 +88,10 @@ export const Contact = React.forwardRef<
             >
               {item.svg}
               <div className="items-start">
-                <h3 className="text-xs lg:leading-7 lg:text-[1.25vw]">
+                <h3 className="text-base lg:leading-7 lg:text-[1.25vw]">
                   {item.plataform}
                 </h3>
-                <h4 className="text-xs lg:leading-7 lg:text-[1.1vw]">
+                <h4 className="text-base lg:leading-7 lg:text-[1.1vw]">
                   {item.name}
                 </h4>
               </div>
