@@ -9,24 +9,25 @@ export const Experience = React.forwardRef<
       <section
         ref={ref}
         id="experience"
-        className="w-full px-96 py-12 my-12 flex flex-col justify-center items-center"
+        className="w-full lg:px-96 lg:py-12 lg:my-12 flex flex-col justify-center items-center"
       >
-        <h2 className="text-[var(--white)] text-[calc(2.5vw-5px)] uppercase">
+        <h2 className="text-[var(--white)] text-base lg:text-[calc(2.5vw-5px)] uppercase pb-4 lg:pb-0">
           Experience
         </h2>
-        <article className="pb-8">
-          <h3 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
+        <article className="pb-8 w-full pl-6 pr-4 lg:px-0">
+          <h3 className="text-[var(--white)] font-bold text-sm lg:text-[calc(2vw-5px)] p-2 lg:p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
             Web Developer
           </h3>
-          <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
+          <p className="text-[var(--white)] text-xs leading-7 lg:leading-normal lg:text-[calc(1.5vw-5px)]">
             I began my web development journey in May 2023 as part of a college
             project, and since then, I have been continuously expanding my
             knowledge in this vast field. Currently, my focus is on Front-End
             development with{" "}
             <strong className="text-[var(--main)]">React</strong>, and I have
             recently started learning{" "}
-            <strong className="text-[var(--main)]">Node.js</strong>, to explore
-            Back-End development.
+            <strong className="text-[var(--main)]">Node.js</strong> and{" "}
+            <strong className="text-[var(--main)]">FastApi (Python)</strong>, to
+            explore Back-End development.
           </p>
           <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
             I am eager to transition into the professional world of web
@@ -34,12 +35,12 @@ export const Experience = React.forwardRef<
             continuously strive to improve my skills every day.
           </p>
         </article>
-        <line className="bg-[var(--grey)] w-full h-px" />
-        <article>
-          <h3 className="text-[var(--white)] font-bold text-[calc(2vw-5px)] p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
+        <line className="bg-[var(--grey)] w-full h-px mb-8 lg:mb-0" />
+        <article className="w-full pl-6 pr-4 lg:px-0">
+          <h3 className="text-[var(--white)] font-bold text-sm lg:text-[calc(2vw-5px)] p-2 lg:p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)">
             RPA Developer Intern
           </h3>
-          <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
+          <p className="text-[var(--white)] text-xs leading-7 lg:text-[calc(1.5vw-5px)]">
             I have been working as an RPA Developer Intern since March 2024.
             Over the past few months, I have gained extensive experience in{" "}
             <strong className="text-[var(--main)]">Python</strong>,{" "}

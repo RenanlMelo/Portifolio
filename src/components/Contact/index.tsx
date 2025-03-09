@@ -17,7 +17,7 @@ export const Contact = React.forwardRef<
           width={75}
           height={75}
           viewBox="0 0 512 512"
-          className="fill-current"
+          className="fill-current p-4 lg:p-0"
         >
           <path
             fill="currentColor"
@@ -36,7 +36,7 @@ export const Contact = React.forwardRef<
           width={75}
           height={75}
           viewBox="0 0 512 512"
-          className="fill-current"
+          className="fill-current p-4 lg:p-0"
         >
           <path
             fill="currentColor"
@@ -55,7 +55,7 @@ export const Contact = React.forwardRef<
           width={75}
           height={75}
           viewBox="0 0 512 512"
-          className="fill-current"
+          className="fill-current p-4 lg:p-0"
         >
           <path
             fill="currentColor"
@@ -70,16 +70,16 @@ export const Contact = React.forwardRef<
     <section
       ref={ref}
       id="contact"
-      className="w-full px-96 py-36 mt-12 flex flex-col justify-center items-center bg-black"
+      className="w-full lg:px-96 py-12 lg:py-36 mt-12 flex flex-col justify-center items-center bg-black"
     >
-      <h2 className="text-white text-[calc(2.5vw-5px)] uppercase mb-2">
+      <h2 className="text-white py-4 text-base lg:text-[calc(2.5vw-5px)] uppercase">
         Contact
       </h2>
-      <div className="grid grid-cols-3 justify-center items-center gap-x-10 m-12">
+      <div className="grid grid-rows-3 lg:grid-cols-3 justify-center items-center gap-y-3 lg:gap-x-10 lg:m-12">
         {contactList.map((item, index) => (
           <div
             key={index}
-            className="icons bg-[#30303060] px-[2rem] py-[2rem] rounded-lg flex flex-col justify-start text-[#aaa] hover:text-white hover:fill-white transition-all duration-300"
+            className="icons bg-[#30303060] px-[1rem] lg:px-[2rem] py-[1rem] lg:py-[2rem] rounded-lg flex flex-col justify-start text-[#aaa] hover:text-white hover:fill-white transition-all duration-300"
           >
             <a
               href={item.href}
@@ -88,8 +88,12 @@ export const Contact = React.forwardRef<
             >
               {item.svg}
               <div className="items-start">
-                <h3 className="text-[1.25vw]">{item.plataform}</h3>
-                <h4 className="text-[1.1vw]">{item.name}</h4>
+                <h3 className="text-xs lg:leading-7 lg:text-[1.25vw]">
+                  {item.plataform}
+                </h3>
+                <h4 className="text-xs lg:leading-7 lg:text-[1.1vw]">
+                  {item.name}
+                </h4>
               </div>
             </a>
           </div>
