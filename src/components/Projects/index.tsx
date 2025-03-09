@@ -92,7 +92,7 @@ export const Projects = React.forwardRef<
                       Repository
                     </a>
                     <a
-                      href={prj.repository}
+                      href={prj.url}
                       target="_blank"
                       className="flex gap-x-2 px-2 py-1 rounded-sm border lg:border-none border-[#aaa] items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
                     >
