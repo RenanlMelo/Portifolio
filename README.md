@@ -62,7 +62,7 @@ The portfolio provides visitors with a quick and engaging introduction about who
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/RenanlMelo/Portifolio.git
-   cd your-portfo
+   cd Portifolio
    ```
 
 2. **Install Dependencies:**
