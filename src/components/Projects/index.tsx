@@ -21,7 +21,7 @@ export const Projects = React.forwardRef<
       img: "unilock.png",
       altImg: "Imagem de projeto para empresa Unilock Pisos",
       used: ["React.js", "Typescript", "MongoDB", "Node.js"],
-      repository: "",
+      repository: "https://github.com/RenanlMelo/Unilock_Pisos",
     },
     {
       name: "Leveling Corp",
@@ -63,9 +63,7 @@ export const Projects = React.forwardRef<
                   <h3 className="text-sm lg:text-xl mt-[1vh] mb-[3vh]">
                     {prj.description}
                   </h3>
-                  <h4 className="text-base lg:text-base">
-                    Technologies Used:
-                  </h4>
+                  <h4 className="text-base lg:text-base">Technologies Used:</h4>
                   <ul className="list-inside list-disc text-sm lg:text-base">
                     {prj.used.map((item) => (
                       <li key={item}>{item}</li>
@@ -75,7 +73,7 @@ export const Projects = React.forwardRef<
                     <a
                       href={prj.repository}
                       target="_blank"
-                      className="flex px-2 py-1 rounded-sm border lg:border-none border-[#aaa] gap-x-2 h-full items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
+                      className="flex justify-start px-2 py-1 rounded-sm border lg:border-none border-[#aaa] gap-x-2 h-full items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +92,7 @@ export const Projects = React.forwardRef<
                     <a
                       href={prj.url}
                       target="_blank"
-                      className="flex gap-x-2 px-2 py-1 rounded-sm border lg:border-none border-[#aaa] items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
+                      className="flex justify-start gap-x-2 px-2 py-1 rounded-sm border lg:border-none border-[#aaa] items-center text-base lg:text-base text-[var(--white)] hover:border-blue-400 hover:text-blue-400 transition-colors duration-300"
                     >
                       <svg
                         className="fill-current group-hover:fill-blue-400 p-1 lg:p-0"
