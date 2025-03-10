@@ -6,7 +6,7 @@ This portfolio website is a single-page application that showcases my profession
 
 - [Overview](#overview)
 - [Sections](#sections)
-  - [Landing Page](#landing-page)
+  - [Introduction](#introduction)
   - [Experience](#experience)
   - [Projects](#projects)
   - [Contact](#contact)
@@ -20,7 +20,7 @@ The portfolio provides visitors with a quick and engaging introduction about who
 
 ## Sections
 
-### Landing Page
+### Introduction
 - **Introduction:** A brief personal introduction where I share my background.
 - **Resume:** An option to view or download my resume.
 - **WhatsApp Contact:** Direct link to my WhatsApp for quick communication.
