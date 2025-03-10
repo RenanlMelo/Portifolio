@@ -21,7 +21,6 @@ The portfolio provides visitors with a quick and engaging introduction about who
 ## Sections
 
 ### Introduction
-- **Introduction:** A brief personal introduction where I share my background.
 - **Resume:** An option to view or download my resume.
 - **WhatsApp Contact:** Direct link to my WhatsApp for quick communication.
 
