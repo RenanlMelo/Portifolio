@@ -39,7 +39,7 @@ export const Projects = React.forwardRef<
       <section
         ref={ref}
         id="projects"
-        className="grid items-center justify-evenly my-12 lg:my-48"
+        className="grid items-center justify-evenly mb-12 mt-32 lg:my-48"
       >
         <div className="text-[var(--white)] text-center">
           <motion.h2
