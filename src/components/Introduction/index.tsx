@@ -54,17 +54,18 @@ export const Content = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.35 }}
           viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-col lg:flex-row pl-12 justify-start gap-x-4 gap-y-8 items-start lg:items-center py-4"
+          className="flex flex-col lg:flex-row pl-12 justify-start gap-x-8 gap-y-8 items-start lg:items-center py-4"
         >
           <a
-            className="border border-[var(--main)] hover:border-[var(--main)] px-2 py-1 text-2xl text-[var(--main)] hover:text-[var(--main)] duration-150 shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] lg:mx-0"
+            className="font-semibold border border-[var(--main)] hover:border-[var(--main)] px-2 py-1 text-2xl text-[var(--main)] hover:text-[var(--main)] duration-150 shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] lg:mx-0"
             href="/Resume.pdf"
             download
           >
             Download Resume
           </a>
+
           <a
-            className="border border-[var(--main)] hover:border-[var(--main)] px-2 py-1 text-2xl text-[var(--main)] hover:text-[var(--main)] duration-150 shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] file:lg:mx-0"
+            className="font-semibold border border-[var(--main)] hover:border-[var(--main)] px-2 py-1 text-2xl text-[var(--main)] hover:text-[var(--main)] duration-150 shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] file:lg:mx-0"
             href="https://wa.me/5515996839690"
             target="_blank"
           >
