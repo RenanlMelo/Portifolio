@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export const Projects = React.forwardRef<
   HTMLDivElement,
@@ -41,12 +42,25 @@ export const Projects = React.forwardRef<
         className="grid items-center justify-evenly my-12 lg:my-48"
       >
         <div className="text-[var(--white)] text-center">
-          <h2 className="text-2xl lg:text-4xl p-2 pb-6 lg:p-8">
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: 0.75 }}
+            className="text-2xl lg:text-4xl p-2 pb-6 lg:p-8"
+          >
             Projects - Web Development
-          </h2>
+          </motion.h2>
           <div className="flex flex-col gap-y-4 lg:gap-y-20">
             {listProjects.map((prj, index) => (
-              <div key={index} className="flex flex-col lg:flex-row w-full ">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: false, amount: 0.6 }}
+                key={index}
+                className="flex flex-col lg:flex-row w-full "
+              >
                 <img
                   className="mx-auto lg:w-4/5 -z-20"
                   src={prj.img}
@@ -110,7 +124,7 @@ export const Projects = React.forwardRef<
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -42,7 +42,6 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
 
   return (
     <>
-      {/* Cabeçalho com botão de menu */}
       <header className="fixed bg-[var(--bg)] border-b border-[var(--darker2)] py-4 lg:py-6 px-14 lg:px-8 flex justify-between items-center w-full z-[1000]">
         <h1 className="text-[#eee] font-bold tracking-wider text-base lg:text-xl">
           My Portifolio
@@ -65,7 +64,6 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
         </span>
       </header>
 
-      {/* Menu Full Screen com animação */}
       {isOpen && (
         <motion.nav
           initial={{ opacity: 0, y: "-100%" }}
