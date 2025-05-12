@@ -1,39 +1,86 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+interface Technologies {
+  frontend: string[];
+  backend: string[];
+  api: string[];
+  database: string[];
+  dataVisualization?: string[]; // Opcional (usando "?")
+}
+
 export const Projects = React.forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{}>
 >((props, ref) => {
-  const listProjects = [
+  const projects: Record<
+    string,
     {
-      name: "Auto Sales Brasil",
-      url: "https://autosalesbrasil.vercel.app/",
-      description: "A fully responsive and functional institutional website.",
-      img: "autosales.png",
-      altImg: "Imagem de projeto para empresa Auto Sales Brasil",
-      used: ["React.js", "Typescript", "Sanity.io", "MongoDB", "Node.js"],
-      repository: "https://github.com/RenanlMelo/autosalesbrasil",
+      url: string;
+      description: string;
+      img: string;
+      altImg: string;
+      technologies: Technologies; // Usando a interface
+      repository: string;
+    }
+  > = {
+    Ambiciente: {
+      url: "https://ambiciente.vercel.app/",
+      description:
+        "College project focused on reporting environmental violations and sharing articles about environmental issues.",
+      img: "ambiciente.png",
+      altImg: "Imagem de projeto realizado para trabalho da faculdade.",
+      technologies: {
+        frontend: ["Next.js", "Typescript", "Tailwind CSS"],
+        backend: ["FastAPI"],
+        api: [],
+        database: ["SQLite"],
+        dataVisualization: ["Power BI"], // Nova categoria adicionada
+      },
+      repository: "https://github.com/RenanlMelo/Ambiciente",
     },
-    {
-      name: "Unilock Pisos - Intertravados",
-      url: "https://www.unilockpisos.com.br/",
-      description: "A fully responsive and functional institutional website.",
-      img: "unilock.png",
-      altImg: "Imagem de projeto para empresa Unilock Pisos",
-      used: ["React.js", "Typescript", "MongoDB", "Node.js"],
-      repository: "https://github.com/RenanlMelo/Unilock_Pisos",
-    },
-    {
-      name: "Leveling Corp",
+    "Leveling Corp": {
       url: "https://levelingcorp.com.br/",
       description: "A fully responsive and functional institutional website.",
       img: "leveling.png",
       altImg: "Imagem de projeto para empresa Leveling",
-      used: ["React.js", "Typescript"],
+      technologies: {
+        frontend: ["Next.js", "Typescript", "Tailwind CSS", "Framer Motion"],
+        backend: [],
+        api: [],
+        database: [],
+      },
       repository: "https://github.com/RenanlMelo/leveling_nextjs",
     },
-  ];
+    "Unilock Pisos - Intertravados": {
+      url: "https://www.unilockpisos.com.br/",
+      description:
+        "Showcase a company specializing in the installation of interlocking floors. ",
+      img: "unilock.png",
+      altImg: "Imagem de projeto para empresa Unilock Pisos",
+      technologies: {
+        frontend: ["React.js", "Typescript", "Tailwind CSS"],
+        backend: [],
+        api: [],
+        database: [],
+      },
+      repository: "https://github.com/RenanlMelo/Unilock_Pisos",
+    },
+    "Auto Sales Brasil": {
+      url: "https://autosalesbrasil.vercel.app/",
+      description:
+        "E-commerce platform for car resale, offering a modern, responsive interface for buying and selling vehicles.",
+      img: "autosales.png",
+      altImg: "Imagem de projeto para empresa Auto Sales Brasil",
+      technologies: {
+        frontend: ["React.js", "Typescript"],
+        backend: ["Node.js"],
+        api: ["Sanity.io"],
+        database: ["MongoDB"],
+      },
+      repository: "https://github.com/RenanlMelo/autosalesbrasil",
+    },
+  };
   return (
     <>
       <section
@@ -52,14 +99,14 @@ export const Projects = React.forwardRef<
             Projects - Web Development
           </motion.h2>
           <div className="flex flex-col gap-y-4 lg:gap-y-20">
-            {listProjects.map((prj, index) => (
+            {Object.entries(projects).map(([name, prj], index) => (
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: false, amount: 0.6 }}
                 key={index}
-                className="flex flex-col lg:flex-row w-full "
+                className="flex flex-col lg:flex-row w-full"
               >
                 <img
                   className="mx-auto lg:w-4/5 -z-20"
@@ -72,17 +119,78 @@ export const Projects = React.forwardRef<
                     target="_blank"
                     className="text-[var(--white)] text-base lg:text-2xl z-40 hover:underline underline-offset-4"
                   >
-                    {prj.name}
+                    {name}
                   </a>
                   <h3 className="text-sm lg:text-xl mt-[1vh] mb-[3vh]">
                     {prj.description}
                   </h3>
                   <h4 className="text-base lg:text-base">Technologies Used:</h4>
-                  <ul className="list-inside list-disc text-sm lg:text-base">
-                    {prj.used.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <div className="text-sm lg:text-base">
+                    {/* Frontend */}
+                    {prj.technologies.frontend.length > 0 && (
+                      <div className="mt-2">
+                        <span className="font-semibold">Front-end:</span>
+                        <ul className="list-inside list-disc ml-4">
+                          {prj.technologies.frontend.map((tech, i) => (
+                            <li key={i}>{tech}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Backend */}
+                    {prj.technologies.backend.length > 0 && (
+                      <div className="mt-2">
+                        <span className="font-semibold">Back-end:</span>
+                        <ul className="list-inside list-disc ml-4">
+                          {prj.technologies.backend.map((tech, i) => (
+                            <li key={i}>{tech}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* API */}
+                    {prj.technologies.api.length > 0 && (
+                      <div className="mt-2">
+                        <span className="font-semibold">API:</span>
+                        <ul className="list-inside list-disc ml-4">
+                          {prj.technologies.api.map((tech, i) => (
+                            <li key={i}>{tech}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Database */}
+                    {prj.technologies.database.length > 0 && (
+                      <div className="mt-2">
+                        <span className="font-semibold">Database:</span>
+                        <ul className="list-inside list-disc ml-4">
+                          {prj.technologies.database.map((tech, i) => (
+                            <li key={i}>{tech}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Data Visualization (agora seguro graças ao "?") */}
+                    {prj.technologies.dataVisualization?.length &&
+                      prj.technologies.dataVisualization?.length > 0 && (
+                        <div className="mt-2">
+                          <span className="font-semibold">
+                            Data Visualization:
+                          </span>
+                          <ul className="list-inside list-disc ml-4">
+                            {prj.technologies.dataVisualization.map(
+                              (tech, i) => (
+                                <li key={i}>{tech}</li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                  </div>
                   <div className="grid grid-cols-2 gap-x-2 items-center justify-evenly pt-4">
                     <a
                       href={prj.repository}

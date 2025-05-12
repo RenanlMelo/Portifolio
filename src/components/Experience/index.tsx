@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Dot } from "lucide-react";
 
 export const Experience = React.forwardRef<
   HTMLDivElement,
@@ -60,23 +61,50 @@ export const Experience = React.forwardRef<
           viewport={{ once: false, amount: 0.5 }}
         >
           <h3 className="text-[var(--main)] font-bold text-base lg:text-[calc(2vw-5px)] p-2 lg:p-8 underline underline-offset-8 decoration-1 decoration-[var(--white)]">
-            RPA Developer Intern
+            RPA
           </h3>
-          <p className="text-[var(--white)] text-sm leading-7 lg:leading-normal lg:text-[calc(1.5vw-5px)]">
-            I have been working as an RPA Developer Intern since March 2024.
-            Over the year, I have gained extensive experience in{" "}
-            <strong className="text-[var(--main)]">Python</strong>,{" "}
-            <strong className="text-[var(--main)]">UiPath</strong>, and{" "}
-            <strong className="text-[var(--main)]">Power Automate</strong>,
-            along with other key development tools such as{" "}
-            <strong className="text-[var(--main)]">SQLite</strong> and{" "}
-            <strong className="text-[var(--main)]">APIs</strong>
-          </p>
-          <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
-            I have been responsible for developing robust and efficient
-            applications that integrate with both web and desktop software,
-            enabling large-scale and precise automations.
-          </p>
+          <div className="mb-4">
+            <h4 className="text-[var(--main)] lg:text-[calc(1.75vw-5px)]">
+              <Dot className="inline -translate-y-[3px]" size={60} /> RPA
+              Developer Jr | 05/2025 - Present
+            </h4>
+            <p className="text-[var(--white)] text-sm leading-7 lg:leading-normal lg:text-[calc(1.5vw-5px)]">
+              I have been working as an RPA Developer Intern since March 2024.
+              Over the year, I have gained extensive experience in{" "}
+              <strong className="text-[var(--main)]">Python</strong>,{" "}
+              <strong className="text-[var(--main)]">UiPath</strong>, and{" "}
+              <strong className="text-[var(--main)]">Power Automate</strong>,
+              along with other key development tools such as{" "}
+              <strong className="text-[var(--main)]">SQLite</strong> and{" "}
+              <strong className="text-[var(--main)]">APIs</strong>
+            </p>
+            <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
+              I have been responsible for developing robust and efficient
+              applications that integrate with both web and desktop software,
+              enabling large-scale and precise automations.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-[var(--main)]  lg:text-[calc(1.75vw-5px)]">
+              <Dot className="inline -translate-y-[3px]" size={60} />
+              RPA Developer Intern | 03/2024 - 04/2025
+            </h4>
+            <p className="text-[var(--white)] text-sm leading-7 lg:leading-normal lg:text-[calc(1.5vw-5px)]">
+              I have been working as an RPA Developer Intern since March 2024.
+              Over the year, I have gained extensive experience in{" "}
+              <strong className="text-[var(--main)]">Python</strong>,{" "}
+              <strong className="text-[var(--main)]">UiPath</strong>, and{" "}
+              <strong className="text-[var(--main)]">Power Automate</strong>,
+              along with other key development tools such as{" "}
+              <strong className="text-[var(--main)]">SQLite</strong> and{" "}
+              <strong className="text-[var(--main)]">APIs</strong>
+            </p>
+            <p className="text-[var(--white)] text-[calc(1.5vw-5px)]">
+              I have been responsible for developing robust and efficient
+              applications that integrate with both web and desktop software,
+              enabling large-scale and precise automations.
+            </p>
+          </div>
         </motion.article>
       </section>
     </>
