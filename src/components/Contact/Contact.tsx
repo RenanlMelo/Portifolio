@@ -18,18 +18,17 @@ export const Contact = React.forwardRef<
   React.PropsWithChildren<{}>
 >((props, ref) => {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [isInView, setIsInView] = useState(false); // controla se a seção está visível
 
   const handleCopy = async (item: ContactItem, index: number) => {
     let text = "";
     switch (item.platform) {
       case "GitHub":
-        text = item.href;
-        break;
       case "LinkedIn":
         text = item.href;
         break;
       case "WhatsApp":
-        text = item.number ? item.number : "5515996839690";
+        text = item.number || "5515996839690";
         break;
       case "E-mail":
         text = item.name;
@@ -44,30 +43,48 @@ export const Contact = React.forwardRef<
     }
   };
 
+  const containerVariants = {
+    visible: {
+      transition: {
+        duration: 0.8,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       ref={ref}
       id="contact"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      onViewportEnter={() => setIsInView(true)}
+      onViewportLeave={() => setIsInView(false)}
+      viewport={{ amount: 0.1 }}
+      variants={containerVariants}
       className="w-full py-12 lg:pt-36 mt-12 flex flex-col justify-center items-center bg-black"
     >
       <motion.h2
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: false, amount: 0.9 }}
+        variants={itemVariants}
         className="text-white py-4 text-2xl lg:text-4xl"
       >
         Contact
       </motion.h2>
 
-      <div className="grid grid-rows-4 grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 justify-center items-center gap-y-10 lg:gap-x-10 lg:m-12">
+      <motion.div className="grid grid-rows-4 grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 justify-center items-center gap-y-10 lg:gap-x-10 lg:m-12">
         {contactList.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.75 }}
-            viewport={{ once: true, amount: 0.5 }}
+            variants={itemVariants}
             className="h-full bg-[#30303060] flex flex-col rounded-lg rounded-r-none justify-between text-[var(--white)] hover:text-[var(--main)] hover:fill-[var(--main)] transition-all duration-300 relative"
           >
             <a
@@ -99,7 +116,7 @@ export const Contact = React.forwardRef<
             </button>
           </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 });
