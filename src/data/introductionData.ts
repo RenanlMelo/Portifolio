@@ -1,6 +1,6 @@
 export const introductionData = {
   name: "Renan Melo",
-  title: "Desenvolvedor Web & RPA",
+  title: "Web & RPA Developer",
   subtitle:
     "Building Interactive User Experiences with Modern Web Technologies",
   description: `
