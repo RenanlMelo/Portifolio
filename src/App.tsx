@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import { Experience } from "./components/Experience";
-import { Introduction } from "./components/Introduction";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
+import { Experience } from "./components/Experience/Experience";
+import { Introduction } from "./components/Introduction/Introduction";
+import { Projects } from "./components/Projects/Projects";
+import { Contact } from "./components/Contact/Contact";
 import "./components.css";
-import { FullScreenMenu } from "./components/Navbar";
+import { FullScreenMenu } from "./components/Navbar/Navbar";
 
 function App() {
   const introductionRef = useRef<HTMLDivElement>(null);

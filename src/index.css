@@ -23,6 +23,7 @@ html {
   height: 100lvh;
   background: var(--bg);
   font-family: "Archivo", sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* ===== Scrollbar CSS ===== */
