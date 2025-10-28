@@ -67,7 +67,7 @@ export const Contact = React.forwardRef<
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.75 }}
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.5 }}
             className="h-full bg-[#30303060] flex flex-col rounded-lg rounded-r-none justify-between text-[var(--white)] hover:text-[var(--main)] hover:fill-[var(--main)] transition-all duration-300 relative"
           >
             <a
