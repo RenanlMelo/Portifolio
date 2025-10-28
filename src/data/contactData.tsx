@@ -4,6 +4,7 @@ export interface ContactItem {
   platform: "GitHub" | "LinkedIn" | "WhatsApp" | "E-mail";
   name: string;
   href: string;
+  number?: string;
   svg: JSX.Element;
 }
 
@@ -24,6 +25,7 @@ export const contactList: ContactItem[] = [
     platform: "WhatsApp",
     name: "Renan Lara Melo",
     href: "https://wa.me/5515996839690",
+    number: "5515996839690",
     svg: <WhatsappIcon />,
   },
   {
