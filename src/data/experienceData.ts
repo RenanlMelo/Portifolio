@@ -1,12 +1,10 @@
 export const experienceData = [
   {
     company: "T2C Group",
-    role: "Desenvolvedor RPA Jr",
-    period: "Mar 2024 – Atual",
+    role: "RPA Developer Jr",
+    period: "Mar 2024 – Present",
     description: `
-Desenvolvimento de automações com Python, UiPath e Power Automate, integrando APIs, bancos de dados e plataformas corporativas.  
-Atuação em projetos para Bayer, Afya e Usiminas, criando soluções para automação de processos web e desktop.  
-Integrações com SAP e Excel para extração, tratamento e consolidação de dados, garantindo eficiência, precisão e escalabilidade nas entregas.
+Development of automations using Python, UiPath, and Power Automate, integrating APIs, databases, and corporate platforms. Worked on projects for Bayer, Afya, and Usiminas, creating automation solutions for web and desktop processes. Integrated with SAP and Excel for data extraction, processing, and consolidation, ensuring efficiency, accuracy, and scalability in deliverables.
 `,
     technologies: [
       "Python",
@@ -19,12 +17,10 @@ Integrações com SAP e Excel para extração, tratamento e consolidação de da
   },
   {
     company: "Freelancer",
-    role: "Desenvolvedor Web Full Stack",
-    period: "Jan 2024 – Atual",
+    role: "Full Stack Web Developer",
+    period: "Jan 2024 – Present",
     description: `
-Criação de e-commerces, landing pages e sites institucionais com React.js, Next.js e Node.js.  
-Foco em performance, SEO e integração entre front-end e back-end com Express.js e FastAPI.  
-Desenvolvimento de interfaces modernas, responsivas e otimizadas, priorizando usabilidade e boas práticas de código.
+Creation of e-commerce platforms, landing pages, and institutional websites using React.js, Next.js, and Node.js. Focused on performance, SEO, and seamless integration between front-end and back-end using Express.js and FastAPI. Developed modern, responsive, and optimized interfaces with a strong emphasis on usability and clean code practices.
 `,
     technologies: [
       "React.js",
