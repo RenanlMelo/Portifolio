@@ -80,7 +80,7 @@ export const Contact = React.forwardRef<
         Contact
       </motion.h2>
 
-      <motion.div className="grid grid-rows-4 grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 justify-center items-center gap-y-10 lg:gap-x-10 lg:m-12">
+      <motion.div className="grid grid-rows-4 grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 justify-center items-center gap-y-10 lg:gap-x-20 lg:m-12">
         {contactList.map((item, index) => (
           <motion.div
             key={index}
