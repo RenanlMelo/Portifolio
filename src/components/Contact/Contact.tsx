@@ -66,10 +66,8 @@ export const Contact = React.forwardRef<
       ref={ref}
       id="contact"
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      onViewportEnter={() => setIsInView(true)}
-      onViewportLeave={() => setIsInView(false)}
-      viewport={{ amount: 0.1 }}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
       className="w-full py-12 lg:pt-36 mt-12 flex flex-col justify-center items-center bg-black"
     >
