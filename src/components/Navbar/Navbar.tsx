@@ -66,11 +66,11 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
 
         <button
           onClick={handleToggle}
-          className="relative w-6 h-4 flex flex-col justify-between items-center group focus:outline-none"
+          className="relative w-11 h-9 flex flex-col justify-between items-center group focus:outline-none hover:bg-[#ffffff30] rounded-lg p-2"
         >
           <span
             className={`block h-[2px] w-full bg-[var(--white)] rounded transition-all duration-500
-            ${isOpen ? "rotate-45 translate-y-[7px]" : ""}`}
+            ${isOpen ? "rotate-45 translate-y-[9px]" : ""}`}
           />
           <span
             className={`block h-[2px] w-full bg-[var(--white)] rounded transition-all duration-500
@@ -78,7 +78,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
           />
           <span
             className={`block h-[2px] w-full bg-[var(--white)] rounded transition-all duration-500
-            ${isOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}
+            ${isOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}
           />
         </button>
       </header>
@@ -99,7 +99,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
                   key={index}
                   variants={itemVariants}
                   onClick={() => scrollToSection(index)}
-                  className="cursor-pointer text-3xl lg:text-5xl text-white font-semibold relative"
+                  className="cursor-pointer text-3xl lg:text-5xl text-white font-semibold relative hover:text-[var(--main)] transition-all duration-300"
                 >
                   <motion.span
                     className="relative"

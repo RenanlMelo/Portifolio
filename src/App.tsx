@@ -5,6 +5,7 @@ import { Projects } from "./components/Projects/Projects";
 import { Contact } from "./components/Contact/Contact";
 import "./components.css";
 import { FullScreenMenu } from "./components/Navbar/Navbar";
+import { BlobCursor } from "./components/Blob/BlobCursor";
 
 function App() {
   const introductionRef = useRef<HTMLDivElement>(null);
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+      <BlobCursor />
       <FullScreenMenu
         sectionRefs={[introductionRef, experienceRef, projectsRef, contactRef]}
       />

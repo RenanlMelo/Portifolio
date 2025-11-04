@@ -22,7 +22,7 @@
 body,
 html {
   height: 100lvh;
-  background: var(--bg);
+  background: linear-gradient(to right, var(--bg), #030304);
   font-family: "Archivo", sans-serif;
   scroll-behavior: smooth;
 }

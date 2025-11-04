@@ -1,0 +1,29 @@
+* {
+  cursor: none;
+}
+
+.inner-cursor {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  background: white;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s;
+  z-index: 9999;
+}
+
+.outer-cursor {
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50%, -50%);
+  border: solid 2px white;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: 0.1s;
+  z-index: 9999;
+}

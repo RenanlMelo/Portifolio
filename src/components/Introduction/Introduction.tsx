@@ -23,7 +23,7 @@ export const Content = () => {
   return (
     <article
       id="introduction"
-      className="px-8 lg:px-96 py-12 h-auto lg:h-auto flex lg:block flex-col justify-center items-start lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none"
+      className="px-8 lg:px-96 py-12 h-auto lg:h-auto flex lg:block flex-col justify-center items-start bg-transparent backdrop-blur-md lg:backdrop-blur-none"
     >
       <motion.div
         initial={{ opacity: 0, x: -40 }}
