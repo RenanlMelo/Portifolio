@@ -58,7 +58,7 @@ export const Content = () => {
         className="flex flex-col lg:flex-row justify-start gap-x-8 gap-y-8 items-start lg:items-center py-4"
       >
         <a
-          className="font-semibold border border-[var(--main)] rounded-full px-4 py-2 text-xl text-[var(--main)] shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] duration-150 hover:bg-[var(--main)] hover:text-[var(--white)]"
+          className="font-semibold border border-[var(--main)] rounded-full px-4 py-2 text-xl text-[var(--main)] shadow-[0px_0px_7px_var(--darker)] hover:shadow-[0px_0px_30px_var(--main)] duration-150 hover:bg-[var(--main)] hover:text-[var(--white)]"
           href={resumeUrl}
           download
         >
@@ -66,7 +66,7 @@ export const Content = () => {
         </a>
 
         <a
-          className="font-semibold border border-[var(--main)] rounded-full px-4 py-2 text-xl text-[var(--main)] shadow-[6px_5px_7px_var(--darker)] hover:shadow-[6px_5px_12px_var(--main)] duration-150 hover:bg-[var(--main)] hover:text-[var(--white)]"
+          className="font-semibold border border-[var(--main)] rounded-full px-4 py-2 text-xl text-[var(--main)] shadow-[0px_0px_7px_var(--darker)] hover:shadow-[0px_0px_30px_var(--main)] duration-150 hover:bg-[var(--main)] hover:text-[var(--white)]"
           href={whatsappUrl}
           target="_blank"
         >
