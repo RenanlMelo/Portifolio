@@ -12,6 +12,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
   const menuList: string[] = [
     "Introduction",
     "Experience",
+    "Skills",
     "Projects",
     "Contact",
   ];

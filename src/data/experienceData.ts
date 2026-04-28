@@ -1,18 +1,35 @@
 export const experienceData = [
   {
-    company: "T2C Group",
-    role: "RPA Developer Jr",
-    period: "Mar 2024 – Present",
+    company: "Nubank (Third Party) – Global TI",
+    role: "Junior Software Engineer",
+    period: "Dec 2025 – Present",
     description: `
-Development of automations using Python, UiPath, and Power Automate, integrating APIs, databases, and corporate platforms. Worked on projects for Bayer, Afya, and Usiminas, creating automation solutions for web and desktop processes. Integrated with SAP and Excel for data extraction, processing, and consolidation, ensuring efficiency, accuracy, and scalability in deliverables.
+Built and maintained RPA automations for the OPS team, reducing operational effort and saving 100+ hours/month. Developed scalable integrations with internal APIs and systems, ensuring reliability for high-volume workflows. Created a VM monitoring platform to improve visibility and tracking of automation infrastructure. Managed workflows via Jira using JQL and automation to optimize team execution. Implemented AI agents (Claude, Glean) to support decision-making and accelerate SDLC.
+`,
+    technologies: [
+      "Python",
+      "UiPath",
+      "N8N",
+      "REST APIs",
+      "Jira",
+      "AI Agents",
+      "Claude",
+    ],
+  },
+  {
+    company: "T2C Group",
+    role: "Junior Developer",
+    period: "Mar 2024 – Nov 2025",
+    description: `
+Designed and maintained scalable automation solutions using UiPath, Python, and Power Automate. Built integrations between databases and APIs with a focus on performance and data integrity. Led process improvements across automations, reducing manual errors and increasing operational efficiency.
 `,
     technologies: [
       "Python",
       "UiPath",
       "Power Automate",
-      "APIs",
-      "SQLite",
       "SQL Server",
+      "SQLite",
+      "REST APIs",
     ],
   },
   {

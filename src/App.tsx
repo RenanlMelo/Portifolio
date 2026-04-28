@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Experience } from "./components/Experience/Experience";
+import { Skills } from "./components/Skills/Skills";
 import { Introduction } from "./components/Introduction/Introduction";
 import { Projects } from "./components/Projects/Projects";
 import { Contact } from "./components/Contact/Contact";
@@ -10,6 +11,7 @@ import { BlobCursor } from "./components/Blob/BlobCursor";
 function App() {
   const introductionRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -17,11 +19,12 @@ function App() {
     <>
       <BlobCursor />
       <FullScreenMenu
-        sectionRefs={[introductionRef, experienceRef, projectsRef, contactRef]}
+        sectionRefs={[introductionRef, experienceRef, skillsRef, projectsRef, contactRef]}
       />
 
       <Introduction ref={introductionRef} />
       <Experience ref={experienceRef} />
+      <Skills ref={skillsRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
     </>
